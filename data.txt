@@ -30,3 +30,27 @@ Device ID: DOEECSFE-CDSD-4ACE-84C4-574AACCIE52O
 System Type: 64-bit operating system; x64-based processor
 //////////////////////////////////////////////////////////////////////
 
+File: 55 - Copy (2).png
+Device Name: Talal
+Processor: Ilth Gen Intel(R) Core(TM) i5-113567 @ 24OGHz
+Installed RAM: 16.0 GB (15.7 GB usable)
+Device ID: DOEECSFE-CDSD-4ACE-84C4-574AACCIE52O
+System Type: 64-bit operating system; x64-based processor
+//////////////////////////////////////////////////////////////////////
+
+File: 55 - Copy (3).png
+Device Name: Talal
+Processor: Ilth Gen Intel(R) Core(TM) i5-113567 @ 24OGHz
+Installed RAM: 16.0 GB (15.7 GB usable)
+Device ID: DOEECSFE-CDSD-4ACE-84C4-574AACCIE52O
+System Type: 64-bit operating system; x64-based processor
+//////////////////////////////////////////////////////////////////////
+
+File: 55 - Copy.png
+Device Name: Talal
+Processor: Ilth Gen Intel(R) Core(TM) i5-113567 @ 24OGHz
+Installed RAM: 16.0 GB (15.7 GB usable)
+Device ID: DOEECSFE-CDSD-4ACE-84C4-574AACCIE52O
+System Type: 64-bit operating system; x64-based processor
+//////////////////////////////////////////////////////////////////////
+
