@@ -1,18 +1,25 @@
-class Connection:
-    def __init__(self, host, port):
-        self.host = host
-        self.port = port
+import os
+import google.auth
+from googleapiclient.discovery import build
+from google.oauth2.credentials import Credentials
 
-    def __str__(self):
-        return f"Connection to {self.host}:{self.port}"
+class GoogleSheet:
+    def __init__(self, spreadsheet_id, api_key=None):
+        self.spreadsheet_id = spreadsheet_id
+        self.api_key = api_key
 
-    def __enter__(self):
-        print("Entering")
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        print("Exiting")
-        if exc_type is None:
-            print("No exception")
+        # authenticate your application
+        if self.api_key is not None:
+            self.service = build('sheets', 'v4', developerKey=self.api_key)
         else:
-            print(f"Exception: {exc_type}")
+            os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'path/to/your/credentials.json'
+            creds, project = google.auth.default(scopes=['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/spreadsheets'])
+            self.service = build('sheets', 'v4', credentials=creds)
+
+    def get_values(self, range_name):
+        # call the Sheets API to retrieve the data
+        result = self.service.spreadsheets().values().get(spreadsheetId=self.spreadsheet_id, range=range_name).execute()
+
+        # return the retrieved data
+        rows = result.get('values', [])
+        return rows
