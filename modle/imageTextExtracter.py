@@ -1,15 +1,29 @@
-import easyocr
+import pytesseract
+from PIL import Image
+import re
 
 
-url = 'https://drive.google.com/uc?id=1RDTkOnkfSSD3qTAgkIGOMUpbz0BLrX4X'
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-
-reader = easyocr.Reader(['en'],gpu=True) # Set the language here
-results = reader.readtext(url) # Replace with your image's path
-
+# Grayscale, Gaussian blur, Otsu's threshold
+image = Image.open('test.jpg')
 
 
 
-for result in results:
-    print(result[1])
+# Perform text extraction
+data = pytesseract.image_to_string(image, lang='eng', config='--psm 6')
 
+fields = {
+    'Device name': '',
+    'Processor': '',
+    'Installed RAM': '',
+    'System type': '',
+}
+
+for field in fields:
+    pattern = field + r'\s+(.*)'
+    match = re.search(pattern, data)
+    if match:
+        fields[field] = match.group(1)
+
+print(fields)
