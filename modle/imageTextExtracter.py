@@ -39,7 +39,7 @@ for url in urls:
 
     # Perform text extraction
     data = pytesseract.image_to_string(image, lang='eng', config='--psm 6')
-
+    print(data)
     fields = {
     'Device name': '',
     'Processor': '',
@@ -57,5 +57,5 @@ for field in fields:
         if match_line:
             fields[field] = match_line.group(0)
 
-    print(data)
+    
     print(fields)
