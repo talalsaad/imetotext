@@ -84,7 +84,7 @@ for url in urls:
     if(extract_device_name(data)!=None):
         fields['Device name'] =extract_device_name(data)
 
-    match = re.search(r'Processor:?\s+.*(Intel.*)', data)
+    match = re.search(r'(Intel.*|Core.*|AMD.*).*', data)
     if match:
         fields['Processor'] = match.group(1)
 
@@ -97,4 +97,5 @@ for url in urls:
     if match:
         fields['System type'] = match.group(1)
         
+    print(data)
     print(fields)
