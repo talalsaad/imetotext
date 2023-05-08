@@ -71,7 +71,7 @@ for url in urls:
     
 
     # Perform text extraction
-    data = pytesseract.image_to_string(image,lang = 'eng',config='--psm 6')
+    data = pytesseract.image_to_string(image,lang = 'eng+ara',config='--psm 6')
     
     fields = {
     'Device name': '',
